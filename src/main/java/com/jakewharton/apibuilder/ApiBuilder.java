@@ -18,10 +18,10 @@ import java.util.Map;
  */
 public class ApiBuilder {
 	/** Opening bracket of a field variable. */
-	protected static final char API_URL_PLACEHOLDER_START = '{';
+	protected static final char API_URL_DELIMITER_START = '{';
 	
 	/** Closing bracket of a field variable. */
-	protected static final char API_URL_PLACEHOLDER_END = '}';
+	protected static final char API_URL_DELIMITER_END = '}';
     
 	/** The URL format. */
     private final String urlFormat;
@@ -197,12 +197,16 @@ public class ApiBuilder {
 		boolean placeHolderFlag = false;
 		boolean firstParameter = true;
 		List<String> usedParameters = new LinkedList<String>();
+		
 		for (int i = 0; i < this.urlFormat.length(); i++) {
-			if (this.urlFormat.charAt(i) == API_URL_PLACEHOLDER_START) {
+			if (this.urlFormat.charAt(i) == API_URL_DELIMITER_START) {
 				placeHolderBuilder = new StringBuilder();
+				placeHolderBuilder.append(API_URL_DELIMITER_START);
 				placeHolderFlag = true;
-			} else if (placeHolderFlag && this.urlFormat.charAt(i) == API_URL_PLACEHOLDER_END) {
+			} else if (placeHolderFlag && (this.urlFormat.charAt(i) == API_URL_DELIMITER_END)) {
+				placeHolderBuilder.append(API_URL_DELIMITER_END);
 				String placeHolder = placeHolderBuilder.toString();
+				
 				if (this.fieldsMap.containsKey(placeHolder)) {
 					urlBuilder.append(this.fieldsMap.get(placeHolder));
 				} else if (this.parametersMap.containsKey(placeHolder)) {
@@ -212,9 +216,11 @@ public class ApiBuilder {
 					} else {
 						urlBuilder.append("&");
 					}
+					
 					urlBuilder.append(placeHolder);
 					urlBuilder.append("=");
 					urlBuilder.append(this.parametersMap.get(placeHolder));
+					
 					usedParameters.add(placeHolder);
 				} else {
 					//We did not find a binding for the place holder. Skip it.
@@ -240,6 +246,7 @@ public class ApiBuilder {
 					} else {
 						urlBuilder.append("&");
 					}
+					
 					urlBuilder.append(parameterName);
 					urlBuilder.append("=");
 					urlBuilder.append(this.parametersMap.get(parameterName));
