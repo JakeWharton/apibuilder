@@ -35,9 +35,11 @@ div.clear hr{
 }
 .xleft, #bannerLeft img {
   float:left;
+  text-shadow: #7CFC00;
 }
-.xright, #bannerRight {
+.xright, #bannerRight img {
   float:right;
+  text-shadow: #7CFC00;
 }
 #banner {
   padding: 0px;
@@ -99,6 +101,9 @@ div.clear hr{
 #poweredBy img {
   display:block;
   margin: 20px 0 20px 17px;
+  border: 1px solid black;
+  width: 90px;
+  height: 30px;
 }
 #search img {
     margin: 0px;
@@ -140,12 +145,4 @@ div.clear hr{
 .source pre {
   margin: 0px;
   padding: 0px;
-}
-#navcolumn img.imageLink, .imageLink {
-  padding-left: 0px;
-  padding-bottom: 0px;
-  padding-top: 0px;
-  padding-right: 2px;
-  border: 0px;
-  margin: 0px;
 }
