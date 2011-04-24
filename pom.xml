@@ -204,6 +204,20 @@
 							</execution>
 						</executions>
 					</plugin>
+					
+					<plugin>
+						<groupId>com.jakewharton</groupId>
+						<artifactId>github-deploy-maven-plugin</artifactId>
+						<version>1.0.1</version>
+						<configuration>
+							<types>
+								<type>jar</type>
+							</types>
+						</configuration>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
