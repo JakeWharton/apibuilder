@@ -14,6 +14,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.zip.GZIPInputStream;
 
 /**
@@ -64,6 +65,25 @@ public class ApiService {
 	 */
 	public void addRequestHeader(String name, String value) {
 		this.requestHeaders.put(name, value);
+	}
+	
+	/**
+	 * Get an HTTP request header value.
+	 * 
+	 * @param value Header name.
+	 * @return Header value.
+	 */
+	public String getRequestHeader(String name) {
+	    return this.requestHeaders.get(name);
+	}
+	
+	/**
+	 * Set of all HTTP request header names.
+	 * 
+	 * @return Header names.
+	 */
+	public Set<String> getRequestHeaderNames() {
+	    return this.requestHeaders.keySet();
 	}
 	
 	/**
