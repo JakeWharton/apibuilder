@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+Version 1.1.1 *(2011-09-07)*
+----------------------------
+
+* Support listing header keys and fetching header values that have already been
+  set.
+
+
 Version 1.1.0 *(2011-04-05)*
 ----------------------------
 
