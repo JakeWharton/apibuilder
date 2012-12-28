@@ -201,10 +201,10 @@ public class ApiBuilder {
 		for (int i = 0; i < this.urlFormat.length(); i++) {
 			if (this.urlFormat.charAt(i) == API_URL_DELIMITER_START) {
 				placeHolderBuilder = new StringBuilder();
-				placeHolderBuilder.append(API_URL_DELIMITER_START);
+				//placeHolderBuilder.append(API_URL_DELIMITER_START);
 				placeHolderFlag = true;
 			} else if (placeHolderFlag && (this.urlFormat.charAt(i) == API_URL_DELIMITER_END)) {
-				placeHolderBuilder.append(API_URL_DELIMITER_END);
+				//placeHolderBuilder.append(API_URL_DELIMITER_END);
 				String placeHolder = placeHolderBuilder.toString();
 				
 				if (this.fieldsMap.containsKey(placeHolder)) {
