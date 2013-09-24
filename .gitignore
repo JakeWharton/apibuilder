@@ -1,9 +1,0 @@
-#Maven
-target
-release.properties
-pom.xml.*
-
-#Eclipse
-.classpath
-.project
-.settings
